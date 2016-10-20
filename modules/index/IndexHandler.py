@@ -4,4 +4,4 @@ from common.BaseHandler import BaseHandler
 
 class IndexHandler(BaseHandler):
 	def get(self):
-		self.render_string('base.html')
+		self.render('index/test.html')

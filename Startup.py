@@ -2,6 +2,7 @@
 # -*- encoding: utf-8 -*-
 import logging
 
+from os import path
 from tornado import ioloop
 from tornado import web
 
@@ -16,9 +17,9 @@ def main():
 		datefmt='%Y-%m-%d %H:%M:%S',
 		format='[%(asctime)s] %(levelname)s: %(message)s')
 
-	template_loader = JinjaLoader('./template/')
 	settings = {
-		"template_loader": template_loader,
+		"static_path": path.join(path.dirname(__file__), "static"),
+		"template_loader": JinjaLoader(path.join(path.dirname(__file__), "templates")),
 		"cookie_secret": "bZJc2sWbQLKos6GkHn/VB9oXwQt8S0R0kRvJ5/xJ89E=",
 		"xsrf_cookies": True,
 	}
